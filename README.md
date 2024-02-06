@@ -1,10 +1,10 @@
-1) Download and install Git
+1) Download and install Git forn online.
 
    
 3) clone the project-
    -> git clone https://github.com/tanvirmahmud66/Task_Manager_with_REST_API.git
 
-4) Download and install python
+4) Download and install python from online.
 
 5) navigate project directory
     -> cd Task_Manager_with_REST_API
