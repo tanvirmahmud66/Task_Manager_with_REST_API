@@ -1,3 +1,4 @@
+from rest_framework.authtoken.models import Token
 from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
@@ -7,9 +8,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.generic import TemplateView , FormView ,ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.utils import timezone
-
 from .models import Tasks, Photos
 from .forms import CustomUserCreationForm, TaskForm, PhotoForm
+from rest_framework import generics, permissions
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authtoken.views import ObtainAuthToken
+from .serializers import UserSerializer
+from rest_framework.response import Response
+from .serializers import TasksSerializer
 
 # Create your views here.
 
@@ -183,6 +189,61 @@ class PhotoView(DetailView):
     context_object_name = 'photo'
     template_name = 'single_photo.html'
     success_url = reverse_lazy('home')
+
+
+#--------------------------------------------------------------------------------------------------
+    
+
+
+class RegisterUserView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny]
+
+    
+class CustomAuthToken(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        response = super(CustomAuthToken, self).post(request, *args, **kwargs)
+        
+        if 'token' in response.data:
+            token = Token.objects.get(key=response.data['token'])
+            return Response({'token': token.key, 'id': token.user_id})
+        else:
+            return Response({'error': 'Authentication failed'}, status=response.status_code)
+        
+    authentication_classes = []
+
+
+class TaskListCreateView(generics.ListCreateAPIView):
+    serializer_class = TasksSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Tasks.objects.filter(user=self.request.user)
+
+
+class CreateTaskView(generics.CreateAPIView):
+    queryset = Tasks.objects.all()
+    serializer_class = TasksSerializer
+    permission_classes = [IsAuthenticated]
+    
+
+class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Tasks.objects.all()
+    serializer_class = TasksSerializer
+    permission_classes = [IsAuthenticated]
+
+
+class UpdateTaskAPIView(generics.UpdateAPIView):
+    queryset = Tasks.objects.all()
+    serializer_class = TasksSerializer
+    permission_classes = [IsAuthenticated]
+
+class DeleteTaskAPIView(generics.DestroyAPIView):
+    queryset = Tasks.objects.all()
+    serializer_class = TasksSerializer
+    permission_classes = [IsAuthenticated]
+
 
     
 
