@@ -32,7 +32,13 @@
     -> python3 manage.py createsuperuser
     (give all the requirement that ask for)
 
-12) Run the Application
+
+3 ueser authentication:
+   -> username: tanvir, password: fahim12345
+   -> username: mahmud, password: fahim12345
+   -> username: fahim, password: fahim12345
+
+13) Run the Application
     -> Python manage.py runserver
 
 
