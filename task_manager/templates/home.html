@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+{%load static%}
+
+
+
+<!-- ------------------------component body--------------------- -->
+{%block section%}
+
+<div class="filter-section">
+
+    <form method="get" action="{% url 'home' %}">
+        <input type="text" name="q" placeholder="Search tasks">
+        <button type="submit">Search</button>
+    </form>
+
+    <form method="get" action="{% url 'home' %}">
+
+        <select name="priority">
+            <option value="">All Priorities</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+
+        <label for="created_date">Created Date:</label>
+        <input type="date" name="created_date">
+
+        <label for="due_date">Due Date:</label>
+        <input type="date" name="due_date">
+
+        <button type="submit">Filter</button>
+    </form>
+</div>
+
+<ul class="list">
+    {%for each in tasks%}
+        <a href="{% url 'single-task' each.id %}">
+            <li class="list-item">
+                <div class="Title">{{each.title}}</div>
+                <div class="info">
+                    {%if each.complete %}
+                        <div>Status: Completed</div>
+                    {%else%}
+                        <div>Status: Incomplete</div>
+                    {%endif%}
+                    <div class="due">Due Time: {{each.due_date}}</div>
+                </div>
+            </li>
+        </a>
+    {%endfor%}
+</ul>
+
+{%endblock section%}

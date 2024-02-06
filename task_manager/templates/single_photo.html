@@ -1,0 +1,10 @@
+{%extends 'base.html'%}
+{%load static%}
+
+<!-- ------------------------component body--------------------- -->
+{%block section%}
+<div class="photo-view">
+    <img src="{{photo.image.url}}" width="100%" alt="photo"/>
+    <a href="{{request.META.HTTP_REFERER}}">Back</a>
+</div>
+{%endblock section%}

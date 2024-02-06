@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%load static%}
+
+
+<!-- ------------------------component body--------------------- -->
+{%block section%}
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    <a href="{{request.META.HTTP_REFERER}}">Back</a>
+</form>
+
+{%endblock section%}

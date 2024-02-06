@@ -1,0 +1,280 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+.mother-div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mother-frame{
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.routing{
+    list-style-type: none;
+    display: flex;
+}
+
+.routing li{
+    margin: 0 10px;
+}
+
+.content-frame{
+    border: 1px solid black;
+    width: 100%;
+    height: 92%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-section{
+    width: 25%;
+    height: 100%;
+    padding: 10px;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-section input[type="text"],
+button[type="submit"],
+input[name="created_date"],
+input[name="due_date"],
+select
+{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+}
+
+.filter-section label{
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.list{
+    list-style-type: none;
+    width: 75%;
+    height: 100%;
+    padding: 10px;
+    overflow: scroll;
+}
+
+.list-item{
+    margin-bottom: 10px;
+    background-color: khaki;
+    padding: .5rem .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list a{
+    text-decoration: none;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.due{
+    margin-left: 25px;
+}
+
+.main-div{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-heading{
+    width: 100%;
+}
+
+.task-heading{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.title{
+    font-size: 2.5rem;
+}
+.due-time{
+    font-size: 1.3rem;
+    color: red;
+}
+
+.task-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.task-info .task-inner{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+.completed{
+    color: green;
+}
+.incomplete{
+    color:red;
+}
+
+
+.high{
+    color: rgb(202, 5, 5);
+}
+.medium{
+    color:rgb(195, 167, 8);
+}
+.low{
+    color:green;
+}
+
+.button-group{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-group .edit-button{
+    text-decoration: none;
+    background: green;
+    color: white;
+    padding: .4rem .7rem;
+    margin-right: 5px;
+}
+.button-group .delete-button{
+    text-decoration: none;
+    background: red;
+    color: white;
+    padding: .4rem .7rem;
+    margin-right: 5px;
+}
+
+.des-img{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.des-img .des{
+    width: 40%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid black;
+}
+.des .des-heading{
+    width: 100%;
+    padding: 3px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight:bolder;
+}
+.des .des-details{
+    text-align: justify;
+}
+
+.des-img .task-img{
+    width: 60%;
+    height: 100%;
+    padding: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+
+
+.create-task{
+    width: 100%;
+    padding: 20px;
+}
+.create-heading{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.create-task form{
+    width: 100%;
+}
+.create-task label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.create-task input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.create-task textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.create-task button[type=submit]{
+    margin-top: 10px;
+}
+.create-task .form-group {
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.photo-view{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+

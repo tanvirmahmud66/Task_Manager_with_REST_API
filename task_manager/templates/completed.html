@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%load static%}
+
+
+<!-- ------------------------component body--------------------- -->
+{%block section%}
+
+<ul class="list">
+    {%for each in tasks%}
+        <a href="{% url 'single-task' each.id %}">
+            <li class="list-item">
+                <div class="Title">{{each.title}}</div>
+                <div class="info">
+                    {%if each.complete %}
+                        <div>Status: Completed</div>
+                    {%else%}
+                        <div>Status: Incomplete</div>
+                    {%endif%}
+                    
+                    <div class="due">Due Time: {{each.due_date}}</div>
+                </div>
+            </li>
+        </a>
+    {%endfor%}
+</ul>
+
+{%endblock section%}

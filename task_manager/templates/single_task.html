@@ -1,0 +1,74 @@
+{%extends 'base.html'%}
+{%load static%}
+
+
+<!-- ------------------------component body--------------------- -->
+{%block section%}
+
+<div class="main-div">
+    <div class="main-heading">
+        <div class="task-heading">
+            <div class="title">{{task.title}}</div>
+            <div class="due-time">Due Time: {{task.due_date}}</div>
+        </div>
+        <div class="task-info">
+            <div class="task-inner">
+                {%if task.complete%}
+                    <div>Status: <span class="completed">Completed</span></div>
+                {%else%}
+                    <div >Status: <span class="incomplete">Incomplete</span></div>
+                {%endif%}
+                <div class="priority">Priority: 
+                    {%if task.priority == "high"%}
+                        <span class="high">{{task.priority | capfirst}}</span>
+                    {%elif task.priority == "medium"%}
+                        <span class="medium">{{task.priority | capfirst}}</span>
+                    {%else%}
+                        <span class="low">{{task.priority | capfirst}}</span>
+                    {%endif%}
+                </div>
+            </div>
+            <div class="created">Created: {{task.created_at}}</div>
+        </div>
+        
+
+        {%if not task.complete%}
+          <form method="post" action="{% url 'single-task' pk=task.id %}">
+            {% csrf_token %}
+            <button type="submit">Mark as Complete</button>
+          </form>
+        {%else%}
+          <form method="post" action="{% url 'single-task' pk=task.id %}">
+            {% csrf_token %}
+            <button type="submit">Mark as Incomplete</button>
+          </form>
+        {%endif%}
+    </div>
+
+    <div class="button-group">
+        <div>
+            <a class="edit-button" href="{%url 'update-task' task.id %}?next={{ request.path }}">Edit</a>
+            <a class="delete-button" href="{%url 'delete-confirm' task.id %}">Delete</a>
+        </div>
+        <div>
+            <a href="{%url 'upload_photo' task.id %}"><Button>Upload Photo</Button></a>
+        </div>
+    </div>
+    
+    <div class="des-img">
+        <div class="des">
+            <div class="des-heading">Description</div>
+            <div class="des-details">{{task.description}}</div>
+        </div>
+        <div class="task-img">
+            {%for each in photos%}
+            <a href="{%url 'single_photo' each.id %}">
+                <img src="{{ each.image.url }}" width="100" alt="Photo">
+            </a>
+            {%endfor%}
+        </div>
+    </div>
+    
+</div>
+
+{%endblock section%}

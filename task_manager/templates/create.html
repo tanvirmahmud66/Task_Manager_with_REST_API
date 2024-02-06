@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%load static%}
+
+
+<!-- ------------------------component body--------------------- -->
+{%block section%}
+<div class="create-task">
+    <div class="create-heading">Create New Task</div>
+    <form method="post" action="">
+        {% csrf_token %}
+
+        {{form.as_p}}
+        
+        <button type="submit">Create Task</button>
+    </form>
+</div>
+
+{%endblock section%}

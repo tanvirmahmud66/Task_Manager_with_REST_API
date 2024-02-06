@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{% block section %}
+<div>Upload Photo for {{target_task.id}}</div>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+    <a href="{{request.META.HTTP_REFERER}}">Back</a>
+</form>
+{% endblock %}

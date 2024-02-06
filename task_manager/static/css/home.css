@@ -1,0 +1,34 @@
+ .filter-section{
+    width: 15%;
+    height: 100%;
+}
+
+.list{
+    list-style-type: none;
+    width: 75%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.list-item{
+    margin-bottom: 10px;
+    background-color: khaki;
+    padding: .5rem .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list a{
+    text-decoration: none;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.due{
+    margin-left: 25px;
+}
