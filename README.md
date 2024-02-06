@@ -20,7 +20,7 @@
     -> pip install -r requirements.txt
 
 9) before database migrations go to project root folder tasks_manager and then settings.py and find database configuration
-    -> if postgreSQL installed in your machine then just change the database name, and then create .env with DB_USER for your root db password of postgreSQL and DB_PASSWORD for your root db password
+    -> if postgreSQL installed in your machine then just change the database name, and then create .env with DB_USER for your root username of postgreSQL and DB_PASSWORD for your root db password
     -> if postgreSQL not installed in your machine then comment the database config setting and uncomment the upper config of database that commented out for SQLite3 Default database
 
 10) Database Migration (go to the directory have manage.py) 
