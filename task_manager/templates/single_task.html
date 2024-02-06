@@ -19,12 +19,12 @@
                     <div >Status: <span class="incomplete">Incomplete</span></div>
                 {%endif%}
                 <div class="priority">Priority: 
-                    {%if task.priority == "high"%}
-                        <span class="high">{{task.priority | capfirst}}</span>
-                    {%elif task.priority == "medium"%}
-                        <span class="medium">{{task.priority | capfirst}}</span>
+                    {%if task.priority == "c"%}
+                        <span class="high">High</span>
+                    {%elif task.priority == "b"%}
+                        <span class="medium">Medium</span>
                     {%else%}
-                        <span class="low">{{task.priority | capfirst}}</span>
+                        <span class="low">Low</span>
                     {%endif%}
                 </div>
             </div>

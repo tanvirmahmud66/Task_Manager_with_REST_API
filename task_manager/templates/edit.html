@@ -5,11 +5,14 @@
 <!-- ------------------------component body--------------------- -->
 {%block section%}
 
-<form method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-    <a href="{{request.META.HTTP_REFERER}}">Back</a>
-</form>
+<div class="edit-task">
+    <div class="edit-heading">Edit Task</div>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        <a href="{{request.META.HTTP_REFERER}}"><div class="text-center">Back</div></a>
+    </form>
+</div>
 
 {%endblock section%}

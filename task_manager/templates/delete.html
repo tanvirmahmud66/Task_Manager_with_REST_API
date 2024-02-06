@@ -5,14 +5,14 @@
 <!-- ------------------------component body--------------------- -->
 {%block section%}
 
-<div>
-    <h2>Delete Task</h2>
-  <p>Are you sure you want to delete "{{ task.title }}"?</p>
+<div class="edit-task">
+    <div class="edit-heading">Delete Task</div>
+  <div class="text-center">Are you sure you want to delete "{{ task.title }}"?</div>
   <form method="post">
     {% csrf_token %}
     <button type="submit">Confirm Delete</button>
   </form>
-    <a href="{{request.META.HTTP_REFERER}}">No</a>
+    <a class="text-center" href="{{request.META.HTTP_REFERER}}"><div class="text-center">Cancel</div></a>
 </div>
 
 {%endblock section%}
