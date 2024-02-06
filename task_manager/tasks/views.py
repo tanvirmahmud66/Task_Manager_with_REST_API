@@ -222,7 +222,7 @@ class TaskListCreateView(generics.ListCreateAPIView):
         return Tasks.objects.filter(user=self.request.user)
 
 
-class CreateTaskView(generics.CreateAPIView):
+class CreateTaskAPIView(generics.CreateAPIView):
     queryset = Tasks.objects.all()
     serializer_class = TasksSerializer
     permission_classes = [IsAuthenticated]

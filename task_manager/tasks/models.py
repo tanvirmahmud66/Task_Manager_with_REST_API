@@ -4,12 +4,13 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 # tasks models
-PRIORITY_CHOICES = [
-    ('low', 'Low'),
-    ('medium', 'Medium'),
-    ('high', 'High'),
-]
+
 class Tasks(models.Model):
+    PRIORITY_CHOICES = [
+        ('a', 'Low'),
+        ('b', 'Medium'),
+        ('c', 'High'),
+    ]
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
@@ -20,7 +21,7 @@ class Tasks(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['priority']
+        ordering = ['-priority']
         verbose_name = "Tasks Table"
         verbose_name_plural = "Tasks Table"
 

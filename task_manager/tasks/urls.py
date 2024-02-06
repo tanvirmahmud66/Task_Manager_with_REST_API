@@ -1,6 +1,6 @@
 from django.urls import path, include
 from .views import CustomLoginView , CustomLogoutView,UserRegistrationView,HomeView, SingleTaskView, CreateTaskView, CompletedTaskView, UpdateTaskView,DeleteTaskConfirmView, PhotoCreateView, PhotoView
-from .views import RegisterUserView, CustomAuthToken,TaskListCreateView, CreateTaskView,TaskDetailView, UpdateTaskAPIView, DeleteTaskAPIView
+from .views import RegisterUserView, CustomAuthToken,TaskListCreateView, CreateTaskAPIView,TaskDetailView, UpdateTaskAPIView, DeleteTaskAPIView
 from django.contrib.auth.views import LoginView
 
 urlpatterns = [
@@ -23,7 +23,7 @@ urlpatterns = [
     path('api/register/', RegisterUserView.as_view(), name='register-user-api'),
     path('api/login/', CustomAuthToken.as_view(), name='login-api'),
     path('api/tasks/', TaskListCreateView.as_view(), name='task-create-api'),
-    path('api/create/', CreateTaskView.as_view(), name='create-task-api'),
+    path('api/create/', CreateTaskAPIView.as_view(), name='create-task-api'),
     path('api/task/<int:pk>/', TaskDetailView.as_view(), name='task-detail-api'),
     path('api/update-task/<int:pk>/', UpdateTaskAPIView.as_view(), name='update-task-api'),
     path('api/delete-task/<int:pk>/', DeleteTaskAPIView.as_view(), name='delete-task-api'),
