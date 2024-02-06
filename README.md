@@ -1,4 +1,4 @@
-1) Download and install Git forn online.
+1) Download and install Git form online.
 
    
 3) clone the project-
